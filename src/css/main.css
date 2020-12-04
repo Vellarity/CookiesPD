@@ -1,5 +1,119 @@
 @import "/fonts/Gilroy/font.css";
+:root{
+  --black: linear-gradient(116.14deg, #1B1B1B 37.62%, #100B0B 100.31%);;
+  --accent:#00FF97;
+  --red:#FF2B2B;
 
+
+}
+.large-button-text{
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.small-button-text{
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.7);
+  padding: 3px 28px;
+}
+.table-text{
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 24px;
+  
+  
+}
 body {
   font-family: "Gilroy";
+  letter-spacing: 0.002em;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.start-page{
+  width: 300px;
+  height: 150px;
+  position: relative;
+  border-radius: 20px ;
+  
+  background:var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.large-button{
+  background-color: var(--accent);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-radius: 25px;
+  padding: 13px 57px;
+}
+.second-page{
+  min-width: 300px;
+  min-height: 150px;
+  background:var(--black);
+  
+}
+nav{
+  height: 43px;
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 16px 9px 16px;
+}
+.reload,.search{
+  width: 24px;
+  height: 24px;
+  opacity: 0.4;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  box-shadow: inset none;
+  
+}
+footer{
+  height: 43px;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  padding: 3px 20px 3px 20px;
+  
+  margin-top: auto;
+}
+.delete{
+  font-weight: bold;
+  background-color: var(--red);
+  border-radius: 32px;
+  
+  
+}
+.create{
+  font-weight: bold;
+  background-color: var(--accent);  
+  border-radius: 32px;
+  
+}
+button{
+  outline: none ;
+}
+table{
+  display: flex;
+  
+}
+tbody{
+  flex: auto;
+}
+tr{
+  background: rgba(0, 255, 151, 0.6);
+  display: flex;
+
+}
+tr:nth-child(even){
+  background: rgba(0, 255, 151, 0.3);
+  
 }
