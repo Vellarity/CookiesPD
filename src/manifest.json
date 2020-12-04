@@ -19,7 +19,7 @@
       "48": "img/ico/logo_48.png",
       "128": "img/ico/logo_128.png"
     },
-    "default_popup": "html/popup-ui.html"
+    "default_popup": "html/popup-start-page.html"
   },
 
   "background": {
@@ -30,8 +30,6 @@
   "content_scripts": [
     { "matches": ["http://*/*", "https://*/*"], "js": ["js/main.js"] }
   ],
-
-  "web_accessible_resources": ["fonts/*"],
 
   "author": "101"
 }
