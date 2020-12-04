@@ -1,0 +1,37 @@
+{
+  "name": "cockie audi",
+  "version": "0.1",
+  "manifest_version": 2,
+
+  "description": "Ломай, ломай мы же милионеры еще купим",
+  "icons": {
+    "16": "img/ico/logo_16.png",
+    "32": "img/ico/logo_32.png",
+    "48": "img/ico/logo_48.png",
+    "128": "img/ico/logo_128.png"
+  },
+
+  "browser_action": {
+    "default_title": "cockie audi",
+    "default_icon": {
+      "16": "img/ico/logo_16.png",
+      "32": "img/ico/logo_32.png",
+      "48": "img/ico/logo_48.png",
+      "128": "img/ico/logo_128.png"
+    },
+    "default_popup": "html/popup.html"
+  },
+
+  "background": {
+    "scripts": ["js/back.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    { "matches": ["http://*/*", "https://*/*"], "js": ["js/main.js"] }
+  ],
+
+  "web_accessible_resources": ["fonts/*"],
+
+  "author": "101"
+}
