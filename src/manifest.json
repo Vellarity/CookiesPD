@@ -28,7 +28,7 @@
   },
 
   "content_scripts": [
-    { "matches": ["http://*/*", "https://*/*"], "js": ["js/main.js"] }
+    { "matches": ["<all_urls>"], "js": ["js/main.js"] }
   ],
 
   "author": "101"
