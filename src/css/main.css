@@ -26,11 +26,14 @@ main {
   box-sizing: border-box;
   text-decoration: none;
   border: none;
+  outline: none;
 }
 
 button {
-  outline: none;
   border-radius: 999px;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
 }
 
 header,
@@ -47,6 +50,7 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: auto;
 }
 
 .large-button {
@@ -84,4 +88,27 @@ footer {
 
 .red {
   background-color: var(--red);
+}
+
+svg {
+  width: 30px;
+  height: 30px;
+  transform: scale(0.6);
+}
+
+svg use {
+  fill: transparent;
+}
+
+input {
+  padding: 0 0 0 10px;
+  overflow-y: hidden;
+}
+
+.simplebar-scrollbar::before {
+  background-color: #fff;
+}
+
+table {
+  margin: 0;
 }

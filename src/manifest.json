@@ -22,20 +22,16 @@
     "default_popup": "popup.html"
   },
 
-  "content_scripts": [{
-    "matches": ["<all_urls>"],
-  "exclude_matches" : [],
-    "js": ["cs.js"],
-    "run_at": "document_end"
-  }],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": [],
+      "js": ["js/cs.js"],
+      "run_at": "document_end"
+    }
+  ],
 
-  "permissions": [
-    "cookies",
-    "tabs",
-    "activeTab",
-    "<all_urls>",
-    "storage"
-	],
+  "permissions": ["cookies", "tabs", "activeTab", "<all_urls>", "storage"],
 
   "author": "101"
 }
