@@ -266,7 +266,7 @@ function set_cookie_handlers() {
 	$('.cookie-val').off('keydown');
 	$('.cookie-val').keydown(enterPress); */
 	
-	$('#cookie-content tr').off('hover');
+	//$('#cookie-content tr').off('hover');
 	/* $('#cookie-content tr').hover(function() { //Действия над кнопками удаления и добавления, если захотите изменить эффекты
 		$(this).find('.cookie-delete').show();
 	},
@@ -277,8 +277,8 @@ function set_cookie_handlers() {
 	$('.cookie-delete').off('click');
 	$('.cookie-delete').click(function() {
 		var target = $(this);
-		deleteCookie(target.next().val(), 
-		function() {
+		var cookie_id = $(this).parents('tr').attr('data-cookie-id');
+		deleteCookie(page_cookies[cookie_id].name, function() {
 			highlightDeleted(target);
 			notifyDeleted();
 			decCookieCount(1);
@@ -322,6 +322,16 @@ function set_cookie_handlers() {
 		$('#cookie-edit-value').val(decodeURIComponent(page_cookies[cookie_id].value));
 		$('#cookie-edit-expires').val(formatDate(new Date(page_cookies[cookie_id].expirationDate * 1000.0)));
 		$('#cookie-edit-more-info').val(decodeURIComponent(JSON.stringify(page_cookies[cookie_id])));
+	});
+
+	$('.delete_all').click(function(){
+		var outers = document.querySelectorAll('.info_tr').forEach(tr => {
+			console.log(tr)
+			var cookie_id = $(tr).attr('data-cookie-id');
+			deleteCookie(page_cookies[cookie_id].name, function() {
+				main_thread();
+			});
+		});
 	});
 }
 
@@ -413,7 +423,7 @@ function addRow(id, key, val)
 {
 	function appendCookie(id, key, val)
 	{
-		$('#cookie-content').append('<tr data-cookie-id="' + id + '" title="L-click: Quick editing, R-click: Advanced editing"><td><input type="text" class="cookie-key" placeholder="key" disabled value="' + decodeURIComponent(key) + '"></td><td><textarea disabled class="cookie-val" placeholder="value" rows="1">' + decodeURIComponent(val) + '</textarea></td><td><button class="cookie-delete red" title="delete cookie"><img src="/img/delete.png" width="8"></button><button class="edit-cookie accent" title="edit-cookie"><img src="/img/edit.png" width="8"></button></td></tr>');
+		$('#cookie-content').append('<tr data-cookie-id="' + id + '" class="info_tr"><td><input type="text" class="cookie-key" placeholder="key" disabled value="' + decodeURIComponent(key) + '"></td><td><textarea disabled class="cookie-val" placeholder="value" rows="1">' + decodeURIComponent(val) + '</textarea></td><td><button class="cookie-delete red" title="delete cookie"><img src="/img/delete.png" width="8"></button><button class="edit-cookie accent" title="edit-cookie"><img src="/img/edit.png" width="8"></button></td></tr>');
 	}
 	if (!search)
 	{
@@ -453,6 +463,17 @@ function highlightSaved(target)
 function highlightDeleted(target)
 {
 	var this_target = target.parent().parent();
+	this_target.css('background', 'salmon');
+	setTimeout(function() {
+		this_target.fadeOut(500, function() {
+			$(this).remove();
+		});
+	}, 500);
+}
+
+function trDeleted(target)
+{
+	var this_target = target.parent();
 	this_target.css('background', 'salmon');
 	setTimeout(function() {
 		this_target.fadeOut(500, function() {
