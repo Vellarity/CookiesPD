@@ -52,6 +52,7 @@ footer nav {
 
 table td:first-of-type {
   padding: 0 30px;
+  width: 70%;
 }
 
 table td:last-of-type button {

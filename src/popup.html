@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/simplebar.css">
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/table-page.css" />
+  <link rel="stylesheet" href="css/add-form.css" />
+  <link rel="stylesheet" href="css/edit-form.css" />
 </head>
 
 <body class="table-page">
@@ -23,7 +25,11 @@
       </div>
 
       <span id="control-panel">
-        <button id="control-search">КНОПКА</button>
+        <div>
+          <button id="control-search" class=" small-button small-button__text">
+            Search
+          </button>
+        </div>
       </span>
       <span id="cookie-count"></span>
 
@@ -37,52 +43,50 @@
 </body>
 
 <form id="cookie-info-form">
-  <div>
-    <label for="cookie-edit-key" title="Cookie Key">Key</label>
-    <input id="cookie-edit-key" placeholder="Key" type="text" />
+  <div class="form_margin">
+    <div>
+      <input id="cookie-edit-key" placeholder="Key" type="text" class="key_edit" />
+    </div>
+    <div class="input_group">
+      <div>
+        <input id="cookie-edit-value" placeholder="Value" class="input_text"/>
+      </div>
+      <div>
+        <input id="cookie-edit-expires" placeholder="Expires" class="input_text"/>
+      </div>
+    </div>
+    <div id="moreInfo" class="Info_block_margin">
+      <label for="moreInfo" class="info_title">Info</label>
+      <textarea id="cookie-edit-more-info" class="more_info" data-simplebar rows="4"></textarea>
+    </div>
   </div>
-  <div>
-    <label for="cookie-edit-value" title="Cookie Value">Value</label>
-    <textarea id="cookie-edit-value" placeholder="Value" rows="4"></textarea>
-  </div>
-  <div>
-    <label for="cookie-edit-expires" type="text" title="Cookie Expiration Date">Expires</label>
-    <input id="cookie-edit-expires" placeholder="Expires" />
-  </div>
-  <div>
-    <a href="#moreInfo" data-toggle="collapse" aria-expanded="false" aria-controls="moreInfo">More info</a>
-  </div>
-  <div id="moreInfo">
-    <textarea id="cookie-edit-more-info" placeholder="Advanced cookie info" rows="4"></textarea>
-  </div>
-  <div id="cookie-edit-panel">
-    <button id="cookie-edit-back">Back</button>
-    <button id="cookie-edit-save">Save</button>
-    <button id="cookie-edit-delete">Delete</button>
+  <div id="cookie-edit-panel" class="save_info_btn">
+    <button id="cookie-edit-save" class="small-button small-button__text accent btn_save">Save</button>
   </div>
 </form>
 
 <form id="add-cookie-form">
   <div>
-    <label for="add-cookie-key" title="Cookie Key">Key</label>
-    <input id="add-cookie-key" placeholder="Key" type="text" />
-  </div>
-  <div>
-    <label for="add-cookie-value" title="Cookie Value">Value</label>
-    <textarea id="add-cookie-value" placeholder="Value" rows="2"></textarea>
-  </div>
-  <div>
-    <label for="add-cookie-expires" type="text" title="Cookie Expires in Days">Expires in days</label>
-    <input id="add-cookie-expires" placeholder="Expires" value="30" />
-  </div>
-  <div>
-    <button id="add-cookie-confirm" class="small-button small-button__text accent">
-      Add cookie
+    <button id="add-cookie-back" class="red small-button small-button__text">
+      <svg>
+        <use x="0" y="0" xlink:href="img/arrow-left.svg#ico"></use>
+      </svg>
     </button>
   </div>
   <div>
-    <button id="add-cookie-back" class="red small-button small-button__text">
-      Back
+    <input id="add-cookie-key" placeholder="Key" type="text" class="key_text input-values"/>
+  </div>
+  <div class="input_group">
+    <div>
+      <input id="add-cookie-value" placeholder="Value" class="input_text"/>
+    </div>
+    <div>
+      <input id="add-cookie-expires" placeholder="Expires" class="input_text"/>
+    </div>
+ </div>
+  <div class="btn_save">
+    <button id="add-cookie-confirm" class="small-button small-button__text accent btn_save">
+      Save
     </button>
   </div>
 </form>

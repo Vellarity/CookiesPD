@@ -127,6 +127,12 @@ function set_handlers() {
         main_thread();
       }
     );
+    if ($(this).text() == "Back"){
+        $(this).text("Search")
+        }
+        else{
+        $(this).text("Back")
+        }
   });
 
   $("#cookie-edit-back").click(function (event) {
@@ -169,12 +175,16 @@ function set_handlers() {
     $("#cookie-table").hide();
     $("footer").hide();
     $("#add-cookie-form").show();
+    $("#control-panel").hide();
+    $("#cookie-count").hide();
   });
 
   $("#add-cookie-back").click(function () {
     event.preventDefault();
     main_thread();
     $("footer").show();
+    $("#control-panel").show();
+    $("#cookie-count").show();
   });
 
   $("#add-cookie-confirm").click(function () {
@@ -187,6 +197,8 @@ function set_handlers() {
       }
     );
     $("footer").show();
+    $("#control-panel").show();
+    $("#cookie-count").show();
   });
 
   var save_search_text = function (val) {
