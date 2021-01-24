@@ -155,6 +155,7 @@ function set_handlers() {
       function () {
         main_thread();
         $("footer").show();
+        $("header").show();
       }
     );
   });
@@ -175,16 +176,14 @@ function set_handlers() {
     $("#cookie-table").hide();
     $("footer").hide();
     $("#add-cookie-form").show();
-    $("#control-panel").hide();
-    $("#cookie-count").hide();
+    $("header").hide();
   });
 
   $("#add-cookie-back").click(function () {
     event.preventDefault();
     main_thread();
     $("footer").show();
-    $("#control-panel").show();
-    $("#cookie-count").show();
+    $("header").show();
   });
 
   $("#add-cookie-confirm").click(function () {
@@ -197,8 +196,7 @@ function set_handlers() {
       }
     );
     $("footer").show();
-    $("#control-panel").show();
-    $("#cookie-count").show();
+    $("header").show();
   });
 
   var save_search_text = function (val) {
@@ -323,6 +321,7 @@ function set_cookie_handlers() {
     $(".search-cookie").hide();
     $("#cookie-table").hide();
     $("footer").hide();
+    $("header").hide();
     $("#cookie-info-form").show();
     $("#cookie-info-form").attr("data-cookie-id", cookie_id);
 
